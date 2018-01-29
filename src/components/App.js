@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 // import { Provider } from 'react-redux'
 // import ReduxPromise from 'redux-promise'
 import TripTime from '../containers/TripTime'
@@ -22,7 +21,9 @@ export default class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <TripTime />
+        <TripTime
+          submit={this.handleSubmitDirections}
+          />
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>

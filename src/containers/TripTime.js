@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 
 class TripTime extends Component {
 
+
   directions() {
     if(!this.props.directions.showDirectionsInputs) {
       console.log(this.props.directions.showDirectionsInputs)
@@ -14,7 +15,13 @@ class TripTime extends Component {
         <div className="directions-inputs">
           <input className="form-control origin-input" onChange={e=>this.props.updateOrigin(e.target.value)} placeholder="Origin" />
           <input className="form-control destination-input" onChange={e=>this.props.updateDestination(e.target.value)} placeholder="Destination" />
-          <button onClick={()=>this.props.fetchTripTime(this.props.directions.origin, this.props.directions.destination)}>Calculate</button>
+          <button onClick={()=>{
+            this.props.fetchTripTime(this.props.directions.origin, this.props.directions.destination)
+            document.querySelector('.origin-input').value=""
+            document.querySelector('.destination-input').value=""}
+          }>Calculate</button>
+          <h4>Origin: {this.props.directions.origin}</h4>
+          <h4>Destination: {this.props.directions.destination}</h4>
         </div>
       )
     }
@@ -24,8 +31,6 @@ class TripTime extends Component {
     return (
       <div>
         {this.directions()}
-        {this.props.directions.origin}
-        {this.props.directions.destination}
       </div>
     )
   }

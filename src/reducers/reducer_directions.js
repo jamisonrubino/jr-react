@@ -1,7 +1,8 @@
 const initialState = {
   showDirectionsInputs: false,
   origin: "",
-  destination: ""
+  destination: "",
+  duration: null
 }
 
 export default function(state=initialState, action) {
@@ -21,9 +22,14 @@ export default function(state=initialState, action) {
     case 'TOGGLE_DIRECTIONS_INPUTS':
       console.log("directions input action reducer")
       return {
-        origin: "",
-        destination: "",
+        ...state,
         showDirectionsInputs: action.payload
+      }
+
+    case 'FETCH_TRIP_TIME':
+      return {
+        ...state,
+        duration: action.payload
       }
     default:
       return state

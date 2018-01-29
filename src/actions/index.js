@@ -24,7 +24,7 @@ export function fetchTripTime(origin, destination) {
   const key = `AIzaSyBY9BvN0BupJ25Dm_I-yBVj2iDmyPuuFBk`
   const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${key}`
   const request = axios.get(url)
-
+  
   console.log("directions request: ", request)
 
   return {
